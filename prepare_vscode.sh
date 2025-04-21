@@ -218,8 +218,8 @@ if [[ "${VSCODE_QUALITY}" == "insider" ]]; then
   setpath "resources/server/manifest" "short_name" "Void - Insiders"
 else
   # Void already has this
-  # setpath "resources/server/manifest" "name" "Void"
-  # setpath "resources/server/manifest" "short_name" "Void"
+  setpath "resources/server/manifest" "name" "Void"
+  setpath "resources/server/manifest" "short_name" "Void"
 fi
 
 # announcements

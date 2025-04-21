@@ -24,7 +24,7 @@ if [[ "${SHOULD_BUILD}" == "yes" ]]; then
   npm run gulp compile-build-without-mangling
   npm run gulp compile-extension-media
   npm run gulp compile-extensions-build
-  npm run gulp minify-vscode
+  # npm run gulp minify-vscode
 
   if [[ "${OS_NAME}" == "osx" ]]; then
     # generate Group Policy definitions

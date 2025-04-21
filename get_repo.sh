@@ -22,7 +22,7 @@ if [[ "${CI_BUILD}" != "no" ]]; then
   git config --global --add safe.directory "/__w/$( echo "${GITHUB_REPOSITORY}" | awk '{print tolower($0)}' )"
 fi
 
-VOID_BRANCH="last-working-1.2.5"
+VOID_BRANCH="main"
 echo "Cloning void ${VOID_BRANCH}..."
 
 mkdir -p vscode

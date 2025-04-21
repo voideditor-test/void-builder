@@ -137,12 +137,12 @@ setpath "product" "tipsAndTricksUrl" "https://go.microsoft.com/fwlink/?linkid=85
 setpath "product" "twitterUrl" "https://go.microsoft.com/fwlink/?LinkID=533687"
 
 if [[ "${DISABLE_UPDATE}" != "yes" ]]; then
-  setpath "product" "updateUrl" "https://raw.githubusercontent.com/voideditor/versions/refs/heads/main" # Void - VERY IMPORTANT
+  setpath "product" "updateUrl" "https://raw.githubusercontent.com/voideditor-test/versions/refs/heads/main" # Void - VERY IMPORTANT
 
   if [[ "${VSCODE_QUALITY}" == "insider" ]]; then
     setpath "product" "downloadUrl" "https://github.com/VSCodium/vscodium-insiders/releases"
   else
-    setpath "product" "downloadUrl" "https://github.com/voideditor/binaries/releases"
+    setpath "product" "downloadUrl" "https://github.com/voideditor-test/binaries/releases"
   fi
 fi
 

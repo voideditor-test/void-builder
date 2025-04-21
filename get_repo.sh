@@ -22,14 +22,15 @@ if [[ "${CI_BUILD}" != "no" ]]; then
   git config --global --add safe.directory "/__w/$( echo "${GITHUB_REPOSITORY}" | awk '{print tolower($0)}' )"
 fi
 
-DEFAULT_BRANCH="main"
-
-# Void added this - If a specific commit hash is provided use that; otherwise use default branch
+VOID_BRANCH="main"
 if [[ -n "${COMMIT_HASH}" ]]; then
-  VOID_BRANCH="${COMMIT_HASH}"
+  echo "Fetching commit ${COMMIT_HASH}..."
+  git fetch --depth 1 origin "${COMMIT_HASH}"
 else
-  VOID_BRANCH="${DEFAULT_BRANCH}"
+  echo "Fetching branch ${VOID_BRANCH}..."
+  git fetch --depth 1 origin "${VOID_BRANCH}"
 fi
+git checkout FETCH_HEAD
 
 
 echo "Cloning void ${VOID_BRANCH}..."

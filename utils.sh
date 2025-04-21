@@ -6,6 +6,13 @@ BINARY_NAME="${BINARY_NAME:-void}"
 GH_REPO_PATH="${GH_REPO_PATH:-voideditor-test/void}"
 ORG_NAME="${ORG_NAME:-voideditor-test}"
 
+echo "---------- utils.sh -----------"
+echo "APP_NAME=\"${APP_NAME}\""
+echo "APP_NAME_LC=\"${APP_NAME_LC}\""
+echo "BINARY_NAME=\"${BINARY_NAME}\""
+echo "GH_REPO_PATH=\"${GH_REPO_PATH}\""
+echo "ORG_NAME=\"${ORG_NAME}\""
+
 # All common functions can be added to this file
 
 apply_patch() {

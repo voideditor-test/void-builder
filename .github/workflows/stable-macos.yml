@@ -12,9 +12,6 @@ on:
       checkout_pr:
         type: string
         description: Checkout PR
-      commit_hash:
-        type: string
-        description: Commit hash to checkout (optional)
   repository_dispatch:
     types: [stable]
   push:
@@ -30,7 +27,7 @@ on:
 env:
   APP_NAME: Void
   # ASSETS_REPOSITORY is where all the downloads are.
-  # VSCodium has this be the current repo, voideditor-test/void-builder:
+  # VSCodium has this be the current repo, voideditor/void-builder:
   # ASSETS_REPOSITORY: ${{ github.repository }}
 
   ASSETS_REPOSITORY: ${{ github.repository_owner }}/binaries
@@ -52,15 +49,13 @@ jobs:
         include:
           - runner: macos-13
             vscode_arch: x64
-          - runner: macos-14
+          - runner: [self-hosted, macOS, ARM64]
             vscode_arch: arm64
 
     steps:
       - uses: actions/checkout@v4
-        # If the workflow is manually dispatched with a commit_hash input, checkout that specific
-        # commit. Otherwise, fall back to the value of GITHUB_BRANCH (default behaviour).
         with:
-          ref: ${{ github.event.inputs.commit_hash != '' && github.event.inputs.commit_hash || env.GITHUB_BRANCH }}
+          ref: ${{ env.GITHUB_BRANCH }}
 
       - name: Switch to relevant branch
         env:
@@ -79,8 +74,6 @@ jobs:
         if: env.VSCODE_ARCH == 'x64'
 
       - name: Clone VSCode repo
-        env:
-          COMMIT_HASH: ${{ github.event.inputs.commit_hash }}
         run: . get_repo.sh
 
       - name: Check PR or cron

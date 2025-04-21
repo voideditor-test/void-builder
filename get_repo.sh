@@ -23,23 +23,13 @@ if [[ "${CI_BUILD}" != "no" ]]; then
 fi
 
 VOID_BRANCH="main"
-if [[ -n "${COMMIT_HASH}" ]]; then
-  echo "Fetching commit ${COMMIT_HASH}..."
-  git fetch --depth 1 origin "${COMMIT_HASH}"
-else
-  echo "Fetching branch ${VOID_BRANCH}..."
-  git fetch --depth 1 origin "${VOID_BRANCH}"
-fi
-git checkout FETCH_HEAD
-
-
 echo "Cloning void ${VOID_BRANCH}..."
 
 mkdir -p vscode
 cd vscode || { echo "'vscode' dir not found"; exit 1; }
 
 git init -q
-git remote add origin https://github.com/voideditor-test/void.git
+git remote add origin https://github.com/voideditor/void.git
 
 git fetch --depth 1 origin "${VOID_BRANCH}"
 git checkout FETCH_HEAD

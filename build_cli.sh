@@ -7,12 +7,12 @@ cd cli
 export CARGO_NET_GIT_FETCH_WITH_CLI="true"
 export VSCODE_CLI_APP_NAME="$( echo "${APP_NAME}" | awk '{print tolower($0)}' )"
 export VSCODE_CLI_BINARY_NAME="$( node -p "require(\"../product.json\").serverApplicationName" )"
-export VSCODE_CLI_UPDATE_ENDPOINT="https://raw.githubusercontent.com/VSCodium/versions/refs/heads/master"
+export VSCODE_CLI_UPDATE_ENDPOINT="https://raw.githubusercontent.com/voideditor-test/versions/refs/heads/main" # Void
 
 if [[ "${VSCODE_QUALITY}" == "insider" ]]; then
-  export VSCODE_CLI_DOWNLOAD_ENDPOINT="https://github.com/VSCodium/vscodium-insiders/releases"
+  export VSCODE_CLI_DOWNLOAD_ENDPOINT="https://github.com/voideditor-test/void-insiders/releases"
 else
-  export VSCODE_CLI_DOWNLOAD_ENDPOINT="https://github.com/VSCodium/vscodium/releases"
+  export VSCODE_CLI_DOWNLOAD_ENDPOINT="https://github.com/voideditor-test/void/releases" # Void
 fi
 
 TUNNEL_APPLICATION_NAME="$( node -p "require(\"../product.json\").tunnelApplicationName" )"

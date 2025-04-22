@@ -46,12 +46,17 @@ else
   git checkout FETCH_HEAD
 fi
 
-MS_COMMIT=$VOID_BRANCH # VSCodium named this incorrectly, it should be called branch not commit
-MS_TAG=$( jq -r '.voidVersion' "product.json" )
+MS_TAG=$( jq -r '.version' "package.json" )
+MS_COMMIT=$VOID_BRANCH # Void - MS_COMMIT doesn't seem to do much
 
-date=$( date +%Y%j )
-RELEASE_VERSION="${MS_TAG}.${date: -5}"
-# RELEASE_VERSION is later used as version (1.0.3+RELEASE_VERSION), so it MUST be a number or it will throw a semver error in void
+if [[ -n "${VOID_RELEASE}" ]]; then # Void added VOID_RELEASE as optional to bump release faster than 1 day
+  RELEASE_VERSION="${MS_TAG}.${VOID_RELEASE}"
+else 
+  date=$( date +%Y%j )
+  RELEASE_VERSION="${MS_TAG}.${date}"
+  # Void - RELEASE_VERSION is later used as version (1.0.3+RELEASE_VERSION), so it MUST be a number or it will throw a semver error in void
+fi
+
 
 echo "RELEASE_VERSION=\"${RELEASE_VERSION}\""
 echo "MS_COMMIT=\"${MS_COMMIT}\""

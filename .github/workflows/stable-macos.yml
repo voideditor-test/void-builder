@@ -12,9 +12,12 @@ on:
       checkout_pr:
         type: string
         description: Checkout PR
-      void_commit:
+      void_commit: # Void added this
         type: string
         description: Checkout specific Void commit
+      void_release: # Void added this
+        type: string
+        description: Custom release number (MUST BE 5 digit number if provided)
   repository_dispatch:
     types: [stable]
   push:
@@ -78,7 +81,8 @@ jobs:
 
       - name: Clone VSCode repo
         env:
-          VOID_COMMIT: ${{ github.event.inputs.void_commit }}
+          VOID_COMMIT: ${{ github.event.inputs.void_commit }} # Void
+          VOID_RELEASE: ${{ github.event.inputs.void_release }} # Void
         run: . get_repo.sh
 
       - name: Check PR or cron

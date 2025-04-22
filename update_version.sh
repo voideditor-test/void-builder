@@ -202,9 +202,9 @@ if [[ -n "${CHANGES}" ]]; then
 
   git commit -m "CI update: ${dateAndMonth} (Build ${GITHUB_RUN_NUMBER})"
 
-  if ! git push origin master --quiet; then
-    git pull origin master
-    git push origin master --quiet
+  if ! git push origin main --quiet; then
+    git pull origin main
+    git push origin main --quiet
   fi
 else
   echo "No changes"

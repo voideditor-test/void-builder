@@ -101,6 +101,12 @@ jobs:
           version: 10
           platform: x64
         if: env.SHOULD_BUILD == 'yes'
+      
+      # Void added this to fix annoying errors
+      - name: Add ubuntu-toolchain-r PPA keys
+        run: |
+          sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
+            --recv-keys 2C277A0A352154E5 1E9377A2BA9EF27F
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4

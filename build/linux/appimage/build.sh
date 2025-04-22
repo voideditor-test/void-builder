@@ -32,9 +32,10 @@ if [[ "${VSCODE_ARCH}" == "x64" ]]; then
     sed -i 's|@@APPNAME@@|codium-insiders|g' recipe.yml
     sed -i 's|@@ICON@@|vscodium-insiders|g' recipe.yml
   else
-    sed -i 's|@@NAME@@|VSCodium|g' recipe.yml
-    sed -i 's|@@APPNAME@@|codium|g' recipe.yml
-    sed -i 's|@@ICON@@|vscodium|g' recipe.yml
+    # Void branding instead of default codium
+    sed -i 's|@@NAME@@|Void|g' recipe.yml
+    sed -i 's|@@APPNAME@@|void|g' recipe.yml
+    sed -i 's|@@ICON@@|void|g' recipe.yml
   fi
 
   # workaround that enforces x86 ARCH for pkg2appimage having /__w/vscodium/vscodium/build/linux/appimage/VSCodium/VSCodium.AppDir/usr/share/codium/resources/app/node_modules/rc/index.js is of architecture armhf

@@ -71,12 +71,18 @@ if [[ "${GITHUB_ENV}" ]]; then
   echo "RELEASE_VERSION=${RELEASE_VERSION}" >> "${GITHUB_ENV}"
 fi
 
+VOID_VERSION=$(jq -r '.voidVersion' product.json) # Void added this
+
+
 echo "----------- get_repo exports -----------"
 echo "MS_TAG ${MS_TAG}"
 echo "MS_COMMIT ${MS_COMMIT}"
 echo "RELEASE_VERSION ${RELEASE_VERSION}"
+echo "VOID VERSION ${VOID_VERSION}"
 echo "----------------------"
+
 
 export MS_TAG
 export MS_COMMIT
 export RELEASE_VERSION
+export VOID_VERSION

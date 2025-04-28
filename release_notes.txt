@@ -1,3 +1,4 @@
+# Void VOID_VERSION
 
 See https://voideditor.com for Void's official download page.
 

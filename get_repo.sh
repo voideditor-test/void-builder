@@ -48,6 +48,7 @@ fi
 
 MS_TAG=$( jq -r '.version' "package.json" )
 MS_COMMIT=$VOID_BRANCH # Void - MS_COMMIT doesn't seem to do much
+VOID_VERSION=$( jq -r '.voidVersion' "product.json" ) # Void added this
 
 if [[ -n "${VOID_RELEASE}" ]]; then # Void added VOID_RELEASE as optional to bump release faster than 1 day
   RELEASE_VERSION="${MS_TAG}${VOID_RELEASE}"
@@ -71,7 +72,6 @@ if [[ "${GITHUB_ENV}" ]]; then
   echo "RELEASE_VERSION=${RELEASE_VERSION}" >> "${GITHUB_ENV}"
 fi
 
-VOID_VERSION=$(jq -r '.voidVersion' product.json) # Void added this
 
 
 echo "----------- get_repo exports -----------"

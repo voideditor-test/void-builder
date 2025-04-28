@@ -247,28 +247,28 @@ if [[ "${OS_NAME}" == "linux" ]]; then
   # fix the packages metadata
   # code.appdata.xml
   sed -i 's|Visual Studio Code|Void|g' resources/linux/code.appdata.xml
-  sed -i 's|https://code.visualstudio.com/docs/setup/linux|https://docs.void.dev|' resources/linux/code.appdata.xml
+  sed -i 's|https://code.visualstudio.com/docs/setup/linux|https://voideditor-test.com|' resources/linux/code.appdata.xml
   sed -i 's|https://code.visualstudio.com/home/home-screenshot-linux-lg.png|https://vscodium.com/img/vscodium.png|' resources/linux/code.appdata.xml
-  sed -i 's|https://code.visualstudio.com|https://void.dev|' resources/linux/code.appdata.xml
+  sed -i 's|https://code.visualstudio.com|https://voideditor-test.com|' resources/linux/code.appdata.xml
 
   # control.template
   sed -i 's|Microsoft Corporation <vscode-linux@microsoft.com>|Void Team <team@voideditor-test.com>|'  resources/linux/debian/control.template
   sed -i 's|Visual Studio Code|Void|g' resources/linux/debian/control.template
-  sed -i 's|https://code.visualstudio.com/docs/setup/linux|https://docs.void.dev|' resources/linux/debian/control.template
-  sed -i 's|https://code.visualstudio.com|https://void.dev|' resources/linux/debian/control.template
+  sed -i 's|https://code.visualstudio.com/docs/setup/linux|https://voideditor-test.com|' resources/linux/debian/control.template
+  sed -i 's|https://code.visualstudio.com|https://voideditor-test.com|' resources/linux/debian/control.template
 
   # code.spec.template
   sed -i 's|Microsoft Corporation|Void Team|' resources/linux/rpm/code.spec.template
   sed -i 's|Visual Studio Code Team <vscode-linux@microsoft.com>|Void Team <team@voideditor-test.com>|' resources/linux/rpm/code.spec.template
   sed -i 's|Visual Studio Code|Void|' resources/linux/rpm/code.spec.template
-  sed -i 's|https://code.visualstudio.com/docs/setup/linux|https://docs.void.dev|' resources/linux/rpm/code.spec.template
-  sed -i 's|https://code.visualstudio.com|https://void.dev|' resources/linux/rpm/code.spec.template
+  sed -i 's|https://code.visualstudio.com/docs/setup/linux|https://voideditor-test.com|' resources/linux/rpm/code.spec.template
+  sed -i 's|https://code.visualstudio.com|https://voideditor-test.com|' resources/linux/rpm/code.spec.template
 
   # snapcraft.yaml
   sed -i 's|Visual Studio Code|Void|'  resources/linux/rpm/code.spec.template
 elif [[ "${OS_NAME}" == "windows" ]]; then
   # code.iss
-  sed -i 's|https://code.visualstudio.com|https://void.dev|' build/win32/code.iss
+  sed -i 's|https://code.visualstudio.com|https://voideditor-test.com|' build/win32/code.iss
   sed -i 's|Microsoft Corporation|Void|' build/win32/code.iss
 fi
 

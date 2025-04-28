@@ -52,7 +52,7 @@ MS_COMMIT=$VOID_BRANCH # Void - MS_COMMIT doesn't seem to do much
 if [[ -n "${VOID_RELEASE}" ]]; then # Void added VOID_RELEASE as optional to bump release faster than 1 day
   RELEASE_VERSION="${MS_TAG}${VOID_RELEASE}"
 else
-  date=1$( date +%j )
+  date=1$( date +%j ) # windows (inno) wants the end number to be < 65535
   RELEASE_VERSION="${MS_TAG}${date}"
   # Void - RELEASE_VERSION is later used as version (1.0.3+RELEASE_VERSION), so it MUST be a number or it will throw a semver error in void
 fi
